@@ -33,7 +33,7 @@ int main() {
 		start=start+s;
 	}
 	cout << start;
-	printf(" ");
+	printf("" );
 	cout << end;
 
 	return 0;
