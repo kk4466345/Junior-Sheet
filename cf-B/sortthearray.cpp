@@ -12,19 +12,49 @@ int main() {
 		b[i]=arr[i];
 	}
 
+
 	sort(arr,arr+n);
-	int count=0;
-	int l,m;
-	l=m=0;
+	int min=0,max=0;
+	int flag=0;
 	for(int i=0;i<n;i++) {
-		if(arr[i] != b[i]) {
-			count++;
-			l=i;
-			while(1 && i < n) {
-				
+		if(b[i] != arr[i] ) {
+			if(flag == 0) {
+				flag=1;
+				min=i;
+				max=i;
+			}else {
+				max=i;
 			}
+
 		}
 	}
-	printf("yes\n%d %d",l+1,m+1);
+
+	// for(int i=0;i<n;i++) {
+	// 	printf("%d %d\n",arr[i],b[i] );
+	// }
+	// cout << endl;
+
+	if(min >= max) {
+		printf("yes\n%d %d",min+1,max+1 );
+		return 0;
+	}
+
+	reverse(b+min,b+max+1);
+
+
+
+	// for(int i=0;i<n;i++) {
+	// 	printf("%d %d\n",arr[i],b[i] );
+	// }
+	// cout << endl;
+	for(int i=0;i<n;i++) {
+		if(arr[i] != b[i]) {
+			cout << "no" << endl;
+			return 0;
+		}
+	}
+
+	printf("yes\n%d %d",min+1,max+1);
+
 	return 0;
 }
