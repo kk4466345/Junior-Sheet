@@ -9,7 +9,8 @@ int main() {
 	int n,m,k,t;
 	cin >> n >> m >> k >> t;
 
-	int* kk=new int[n * m];
+	int *kk;
+	kk = (int*) malloc(n*m*sizeof(int));
 	for(int i=0;i<n;i++) {
 		for(int j=0;j<m;j++) {
 			*(kk + i*n+j)=0;
@@ -63,7 +64,7 @@ int main() {
 		}
 
 	}
-	delete [] kk;
+	free(kk);
 
 	// getchar();
 
